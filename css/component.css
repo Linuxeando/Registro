@@ -60,7 +60,7 @@
 	display: block;
 	margin-bottom: 2.5em;
 	color: #3b3f45;
-	content: 'Review & Submit';
+	content: 'Revisión & Envío';
 	font-weight: 700;
 	font-size: 1.85em;
 }
@@ -666,7 +666,7 @@ button.fs-continue:hover {
 	text-align: center;
 	background: transparent;
 	color: rgba(0,0,0,0.3);
-	content: 'or press ENTER';
+	content: 'o presiona ENTER';
 	font-size: 0.65em;
 	pointer-events: none;
 }
