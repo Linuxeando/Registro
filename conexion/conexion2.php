@@ -2,7 +2,7 @@
 	$servidor = "localhost";
 	$usuario = "aztecatu_adrian";
 	$password = "aztlirulz";
-	$mydb = "aztecatu_registro";
+	$mydb = "aztecatu_RegistroIntel";
 	$conexion = mysqli_connect($servidor,$usuario,$password);
 
 	if (! $conexion) {
