@@ -23,7 +23,7 @@ ini_set('display_errors', '1');
 	<body>
 	<?php
                 require("conexion/conexion2.php"); // CONEXION A LA BD
-		//include("funciones/crearCarpeta.php");
+		include("funciones/archivos.php");
         ?> 
 
 		<div class="container">
@@ -76,20 +76,18 @@ ini_set('display_errors', '1');
 		</div><!-- /container -->
 
 		<?php
-  		if (isset($_POST['enviar'])) // CUANDO HAYA PULSADO EL BOTON DE "Registrar" ENVIO ESTE MENSAJE
-  		{
-		//GuardaArchivosFormulario();	
-                $consulta = "INSERT INTO alumno (nombre_alumno, matricula, email, telefono, carrera) VALUES ('$_POST[q1]','$_POST[q2]','$_POST[q3]','$_POST[q4]','$_POST[q5]')";
-                $resultado = mysqli_query($conexion, $consulta);
-                if(!$resultado){
-                        echo "Algo salio mal, no se pudo enviar sus datos";
-                }       else{
-                                echo "Usuario (a) <strong>".$_POST['q1'].' '.$_POST['q2']."</strong> tu informacion ha sido capturada con exito";
-                }
-                $idalumno = mysqli_insert_id($conexion);
-                echo "$idalumno";
-                }
-  ?>
+                    if (isset($_POST['enviar'])){ // CUANDO HAYA PULSADO EL BOTON DE "Registrar" ENVIO ESTE MENSAJE
+                        $consulta = "INSERT INTO alumno (nombre_alumno, matricula, email, telefono, carrera) VALUES ('$_POST[q1]','$_POST[q2]','$_POST[q3]','$_POST[q4]','$_POST[q5]')";
+                        $resultado = mysqli_query($conexion, $consulta);
+                        if(!$resultado){
+                            echo "Algo salio mal, no se pudo enviar sus datos";
+                        }       
+                        else{
+                            createFolder($_POST['q1']); //Se crea la carpeta si la inserción es correcta 
+                            echo "Usuario (a) <strong>".$_POST['q1'].' '.$_POST['q2']."</strong> tu informacion ha sido capturada con exito";
+                        }
+                    }
+                ?>
 
 		
 		<script src="js/classie.js"></script>
